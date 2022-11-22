@@ -1,28 +1,63 @@
 class calculadora():
 
 
-    def __init__(self):
+    def __init__(self): #CONSTRUTOR INICIA AS OPERAÇÕES 
+        resultado = 0    
+        print("BEM VINDOA CALCULADORA\n*******************************")
+        self.listar_operacoes() #METODO QUE LISTA AS OPERAÇÕES, FORA DO WHILE PARA INICIALIZAR A PRIMEIRA VEZ
         while True: 
-            # self.rodar()
+            try: #PARA O CODIGO NAO QUEBRAR POR ERRO DE INPUT DO USUARIO
+                resultado = self.rodar(resultado)  #VARIAVEL RESULTADO INICIADA COM 0 A CIMA, MAS DEPOIS RECEBE DO LOOPING IFINITO
+                if resultado == "break":
+                    break
+                print(resultado)
+                
+                if resultado == "listar":
+                    self.listar_operacoes() #METODO PARA LISTAR OPERAÇÕES CASO DESEJADO PELO USUARIO
+
+            except: #INFORMA O USUARIO QUE ELE REALIZOU UM INPUT ERRADO
+                print("Houve algum erro de input, verifique as instruções")
+                pass
             
-            resultado = self.rodar()
-            if resultado == 0:
-                break
-            print(resultado)
-            
-            
+    def listar_operacoes(self): #METODO QUE LISTA OPERAÇÕES
+        print("1 - somar")
+        print("2 - subtrair")
+        print("3 - multiplicar")
+        print("4 - dividir")
+        print("5 - elevar ao quadrado")
+        print("6 - raiz quadrada")
+        print("7 - elevar a x")
+        print("8 - raiz x")
+        print("9 - log")
+        print("10 - fatorial")
+        print("11 - sen")
+        print("12 - cos")
+        print("13 - tg")
+        print("14 - juros simples")
+        print("15 - juros compostos")
         
 
-    def rodar():
+    def rodar(self, res): #METODO QUE RODA O CODIGO, CONDIÇÕES DE OPÇÕES DO USUARIO
         
-        a = int(input("Escolha sua operação: "))
+        a = int(input("Escolha sua operação, digite 0 para encerrar ou 45 para listar operações: "))
 
+        if a == 45:
+            return "listar"
         if a == 0:
-            return 0
+            return "break"
+        
 
-        x = float(input("Digite um numero: "))
-        y = float(input("Digite um numero: "))
+        x = input("Digite um numero ou r para resultado anterior: ")
+        if x == "r":
+            x = res
+        else:
+            x = float(x)
 
+        y = input("Digite um numero ou r para resultado anterior: ")
+        if y == "r":
+            y = res
+        else:
+            y = float(y)
 
         
             
@@ -46,8 +81,8 @@ class calculadora():
 
         return resultado
 
-    class simples():
-        def __init__(self, a, b):
+    class simples(): #SUBCLASSE DA CALCULADORA SIMPLES, REALIZA OPERAÇÕES SIMPLES
+        def __init__(self, a, b): #CONSTRUTOR RECEBE OS PARAMETROS
             self.a = a
             self.b = b
 
@@ -74,9 +109,3 @@ class calculadora():
 
 
 calculadora()     
-    
-
-# c = calculadora.simples(2,4)
-
-
-# print(c.somar())
