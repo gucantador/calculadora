@@ -128,7 +128,7 @@ class calculadora():
             self.N = N # Periodo (mês)
 
         def Juros_Simples(self):
-            J_S = (self.P * (self.I/100) * self.N)
+            J_S = (self.P + (self.P * (self.I/100) * self.N))
             return J_S
 
         def Juros_Composto(self):
