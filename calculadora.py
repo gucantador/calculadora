@@ -1,3 +1,4 @@
+
 class calculadora():
 
 
@@ -54,6 +55,14 @@ class calculadora():
         if a == 14 or a == 15:
             x,y,z = calculadora.prin_finan() 
 
+
+        if a == 5:
+            x = float(input("Digite um numero ou r para resultado anterior: "))
+            y = None
+            if x == "r":
+                x = res
+
+
         else: 
             x = input("Digite um numero ou r para resultado anterior: ")
             if x == "r":
@@ -85,6 +94,13 @@ class calculadora():
         if a == 4:
             c = calculadora.simples(x, y)
             resultado = c.dividir()
+
+
+
+        if a == 5:
+            c = calculadora.cientifica(x, y)
+            resultado = c.elevado_quadrado()
+
 
         if a == 14:
             c = calculadora.Financeira(x,y,z)
@@ -118,14 +134,44 @@ class calculadora():
             return self.a/self.b
 
     class cientifica():
-        def elevado_quadrado(a):
-            pass
+
+
+
+
+
+
+
+
+
+
+        def __init__(self, a, b=0): #CONSTRUTOR RECEBE OS PARAMETROS
+            self.a = a
+            self.b = b
+
+        def elevado_quadrado(self):
+            # return self.a*self.a
+            c = calculadora.simples(self.a, self.a)
+            return c.multiplicar()
+
+            
+
+
+
+
+
+
+
+
+
+
+
     class Financeira():
         def __init__(self, P, I, N):
             #self.M = M # Montante
             self.P = P # Montante Inicial (R$)
             self.I = I # Taxa de Juros (%)
             self.N = N # Periodo (mês)
+
 
         def Juros_Simples(self):
             J_S = (self.P + (self.P * (self.I/100) * self.N))
