@@ -10,7 +10,7 @@ class calculadora():
                 resultado = self.rodar(resultado)  #VARIAVEL RESULTADO INICIADA COM 0 A CIMA, MAS DEPOIS RECEBE DO LOOPING IFINITO
                 if resultado == "break":
                     break
-                print(resultado)
+                print('%.2f' % resultado)
                 
                 if resultado == "listar":
                     self.listar_operacoes() #METODO PARA LISTAR OPERAÇÕES CASO DESEJADO PELO USUARIO
@@ -18,7 +18,13 @@ class calculadora():
             except: #INFORMA O USUARIO QUE ELE REALIZOU UM INPUT ERRADO
                 print("Houve algum erro de input, verifique as instruções")
                 pass
-            
+
+    def prin_finan(): # 'PRINT' DEDICADO PARA CALCULADORA FINANCEIRA
+        x = float(input("Montatnte Inicial (R$): "))
+        y = float(input("Taxa de Juros (%): "))
+        z = float(input("Periodo (mês): "))
+        return(x,y,z)
+
     def listar_operacoes(self): #METODO QUE LISTA OPERAÇÕES
         print("1 - somar")
         print("2 - subtrair")
@@ -45,22 +51,23 @@ class calculadora():
             return "listar"
         if a == 0:
             return "break"
-        
+        if a == 14 or a == 15:
+            x,y,z = calculadora.prin_finan() 
 
-        x = input("Digite um numero ou r para resultado anterior: ")
-        if x == "r":
-            x = res
-        else:
-            x = float(x)
+        else: 
+            x = input("Digite um numero ou r para resultado anterior: ")
+            if x == "r":
+                x = res
+            else:
+                x = float(x)
 
-        y = input("Digite um numero ou r para resultado anterior: ")
-        if y == "r":
-            y = res
-        else:
-            y = float(y)
+            y = input("Digite um numero ou r para resultado anterior: ")
+            if y == "r":
+                y = res
+            else:
+                y = float(y)
 
-        
-            
+        #----------------------------------------
 
         if a == 1:
             c = calculadora.simples(x, y)
@@ -78,6 +85,14 @@ class calculadora():
         if a == 4:
             c = calculadora.simples(x, y)
             resultado = c.dividir()
+
+        if a == 14:
+            c = calculadora.Financeira(x,y,z)
+            resultado = c.Juros_Simples()
+
+        if a == 15:
+            c = calculadora.Financeira(x,y,z)
+            resultado = c.Juros_Composto()
 
         return resultado
 
@@ -99,13 +114,25 @@ class calculadora():
             while self.b == 0:
                 print("Nao existe divisao por 0, tente novamente")
                 self.a = float(input("Digite um numero: "))
-                self.b =float(input("Digite um numero: "))
+                self.b = float(input("Digite um numero: "))
             return self.a/self.b
 
     class cientifica():
         def elevado_quadrado(a):
             pass
+    class Financeira():
+        def __init__(self, P, I, N):
+            #self.M = M # Montante
+            self.P = P # Montante Inicial (R$)
+            self.I = I # Taxa de Juros (%)
+            self.N = N # Periodo (mês)
 
+        def Juros_Simples(self):
+            J_S = (self.P + (self.P * (self.I/100) * self.N))
+            return J_S
 
+        def Juros_Composto(self):
+            J_C = self.P * ((1 + (self.I/100))**self.N)
+            return J_C
 
 calculadora()     
