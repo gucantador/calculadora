@@ -1,4 +1,4 @@
-from math import exp, log10, sin, cos, tan, factorial
+from math import exp, log10, sin, cos, tan, factorial,degrees
 class calculadora():
 
 
@@ -123,7 +123,7 @@ class calculadora():
             c = calculadora.cientifica(x, y)
             resultado = c.cos()
 
-        if a == 12:
+        if a == 13:
             c = calculadora.cientifica(x, y)
             resultado = c.tg()       
 
@@ -186,13 +186,13 @@ class calculadora():
             pass
 
         def sen(self): 
-            pass
+            return (sin(self.a)) # Convertendo para graus
 
         def cos(self): 
-            pass
+            return (cos(self.a)) # Convertendo para graus
         
         def tg(self): 
-            pass
+            return (tan(self.a)) # Convertendo para graus
 
     class Financeira():
         def __init__(self, P, I, N):
