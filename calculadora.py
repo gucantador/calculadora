@@ -135,8 +135,32 @@ class calculadora():
 
         def elevado_quadrado(self):
             # return self.a*self.a
-            c = calculadora.simples(self.a, self.a)
+            c = calculadora.simples(self.a, self.a) #
             return c.multiplicar()
+        
+        def raiz_quadrada(self): 
+            pass
+
+        def elevar_a_x(self): 
+            pass
+
+        def raiz_x(self): 
+            pass
+
+        def log(self): 
+            pass
+
+        def fatorial(self): 
+            pass
+
+        def sen(self): 
+            pass
+
+        def cos(self): 
+            pass
+        
+        def tg(self): 
+            pass
 
     class Financeira():
         def __init__(self, P, I, N):
