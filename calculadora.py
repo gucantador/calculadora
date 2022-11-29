@@ -1,4 +1,4 @@
-
+from math import exp, log10, sin, cos, tan, factorial
 class calculadora():
 
 
