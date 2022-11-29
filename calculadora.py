@@ -73,11 +73,10 @@ class calculadora():
             else:
                 y = float(y)
 
-        #----------------------------------------
+        #-------------Simples----------------#
 
         if a == 1:
             c = calculadora.simples(x, y)
-            # print(c.somar())
             resultado = c.somar()
 
         if a == 2:
@@ -91,11 +90,44 @@ class calculadora():
         if a == 4:
             c = calculadora.simples(x, y)
             resultado = c.dividir()
-
+        #-------------Cientifica----------------#
         if a == 5:
             c = calculadora.cientifica(x, y)
             resultado = c.elevado_quadrado()
 
+        if a == 6:
+            c = calculadora.cientifica(x, y)
+            resultado = c.raiz_quadrada()
+
+        if a == 7:
+            c = calculadora.cientifica(x, y)
+            resultado = c.elevar_a_x()
+
+        if a == 8:
+            c = calculadora.cientifica(x, y)
+            resultado = c.raiz_x()
+
+        if a == 9:
+            c = calculadora.cientifica(x, y)
+            resultado = c.log()
+
+        if a == 10:
+            c = calculadora.cientifica(x, y)
+            resultado = c.fatorial()
+
+        if a == 11:
+            c = calculadora.cientifica(x, y)
+            resultado = c.sen()
+
+        if a == 12:
+            c = calculadora.cientifica(x, y)
+            resultado = c.cos()
+
+        if a == 12:
+            c = calculadora.cientifica(x, y)
+            resultado = c.tg()       
+
+        #-------------Financeira---------------#
         if a == 14:
             c = calculadora.Financeira(x,y,z)
             resultado = c.Juros_Simples()
