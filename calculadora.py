@@ -48,6 +48,12 @@ class calculadora():
 
         if a in [14, 15]: #CONDIÇÃO PARA EXIBIR A CALCULADORA FINANCEIRA
             x, y, z = calculadora.prin_finan()
+            if x == "r":
+                x = res
+            if y == "r":
+                y = res
+            if z =="r":
+                z == res
 
         if a in [1, 2, 3, 4, 7, 8]: #CONDIÇÃO PARA RECEBER 2 INPUTS
             x = input("Digite um numero ou r para resultado anterior: ")
