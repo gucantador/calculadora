@@ -23,7 +23,7 @@ class calculadora():
                 pass
 
     def prin_finan():  # 'PRINT' DEDICADO PARA CALCULADORA FINANCEIRA
-        x = float(input("Montatnte Inicial (R$): "))
+        x = float(input("Montante Inicial (R$): "))
         y = float(input("Taxa de Juros (%): "))
         z = float(input("Periodo (mês): "))
         return (x, y, z)
@@ -182,6 +182,7 @@ class calculadora():
 
         def raiz_x(self):
             return self.a**(1/self.b)
+            
         def log(self):
             return log10(self.a)
 
@@ -189,13 +190,13 @@ class calculadora():
             return factorial(self.a)
 
         def sen(self):
-            return (sin(self.a))  # Convertendo para graus
+            return (sin(self.a))  # Resultado em Radiano
 
         def cos(self):
-            return (cos(self.a))  # Convertendo para graus
+            return (cos(self.a))  # Resultado em Radiano
 
         def tg(self):
-            return (tan(self.a))  # Convertendo para graus
+            return (tan(self.a))  # Resultado em Radiano
 
     class Financeira(): #SUBCLASSE CALCULADORA FINANCEIRA
         def __init__(self, P, I, N): #CONSTRUTOR RECEBE PARAMETROS
