@@ -1,21 +1,19 @@
-from math import exp, log10, sin, cos, tan, factorial, degrees, sqrt, log10
-
-
+from math import log10, sin, cos, tan, factorial, sqrt, log10
 class calculadora():
 
     def __init__(self):  # CONSTRUTOR INICIA AS OPERAÇÕES
         resultado = 0
         print("BEM VINDOA CALCULADORA\n*******************************")
-        self.listar_operacoes()  # METODO QUE LISTA AS OPERAÇÕES, FORA DO WHILE PARA INICIALIZAR A PRIMEIRA VEZ
+        self.listar_operacoes()  # MÉTODO QUE LISTA AS OPERAÇÕES, FORA DO WHILE PARA INICIALIZAR A PRIMEIRA VEZ
         while True:
-            try:  # PARA O CODIGO NAO QUEBRAR POR ERRO DE INPUT DO USUARIO
+            try:  # PARA O CODIGO NÃO QUEBRAR POR ERRO DE INPUT DO USUARIO
                 resultado = self.rodar(
-                    resultado)  # VARIAVEL RESULTADO INICIADA COM 0 A CIMA, MAS DEPOIS RECEBE DO LOOPING IFINITO
+                    resultado)  # VARIAVEL RESULTADO INICIADA COM 0 A CIMA, MAS DEPOIS RECEBE DO LOOPING INFINITO
                 if resultado == "break":
                     break
 
                 if resultado == "listar":
-                    self.listar_operacoes()  # METODO PARA LISTAR OPERAÇÕES CASO DESEJADO PELO USUARIO
+                    self.listar_operacoes()  # MÉTODO PARA LISTAR OPERAÇÕES CASO DESEJADO PELO USUARIO
                 else:
                     print('%.2f' % resultado)
             except:  # INFORMA O USUARIO QUE ELE REALIZOU UM INPUT ERRADO
@@ -28,13 +26,13 @@ class calculadora():
         z = float(input("Periodo (mês): "))
         return (x, y, z)
 
-    def listar_operacoes(self):  # METODO QUE LISTA OPERAÇÕES
+    def listar_operacoes(self):  # MÉTODO QUE LISTA OPERAÇÕES
         prin_t = ['1 - somar'       ,'2 - subtrair'  ,'3 - multiplicar','4 - dividir'       ,'5 - elevar ao quadrado',
                  '6 - raiz quadrada','7 - elevar a x','8 - raiz x'     ,'9 - log base 10'   ,'10 - fatorial'         ,
                  '11 - sen'         ,'12 - cos'      ,'13 - tg'        ,'14 - juros simples','15 - juros compostos'  ]       
         for i in prin_t: {print(i)} # PRINT TODAS AS OPÇÕES DA CALCULADORA
 
-    def rodar(self, res):  # METODO QUE RODA O CODIGO, CONDIÇÕES DE OPÇÕES DO USUARIO
+    def rodar(self, res):  # MÉTODO QUE RODA O CODIGO, CONDIÇÕES DE OPÇÕES DO USUARIO
 
         a = int(input("Escolha sua operação, digite 0 para encerrar ou 45 para listar operações: "))
 
@@ -48,7 +46,7 @@ class calculadora():
             if x == "r":
                 x = res
 
-        if a in [14, 15]: # CONDIÇÃO PARA EXIBIR A CALCULADORA FINANCEIRA
+        if a in [14, 15]: #CONDIÇÃO PARA EXIBIR A CALCULADORA FINANCEIRA
             x, y, z = calculadora.prin_finan()
 
         if a in [1, 2, 3, 4, 7, 8]: #CONDIÇÃO PARA RECEBER 2 INPUTS
@@ -128,7 +126,7 @@ class calculadora():
             c = calculadora.Financeira(x, y, z)
             resultado = c.Juros_Composto()
 
-        c = None #destrutor
+        c = None #DESTRUTOR
         return resultado
 
 
@@ -160,7 +158,7 @@ class calculadora():
             self.b = b
 
         def elevado_quadrado(self):
-            c = calculadora.simples(self.a, self.a)  
+            c = calculadora.simples(self.a, self.a)# HERANÇA DO MÉTODO DE MULTIPLICAÇÃO DA CALCULADORA SIMPLES
             return c.multiplicar()
 
         def raiz_quadrada(self):
@@ -179,19 +177,19 @@ class calculadora():
             return factorial(self.a)
 
         def sen(self):
-            return (sin(self.a))  # Resultado em Radiano
+            return sin(self.a)  # Resultado em Radiano
 
         def cos(self):
-            return (cos(self.a))  # Resultado em Radiano
+            return cos(self.a)  # Resultado em Radiano
 
         def tg(self):
-            return (tan(self.a))  # Resultado em Radiano
+            return tan(self.a)  # Resultado em Radiano
 
-    class Financeira(): #SUBCLASSE CALCULADORA FINANCEIRA
-        def __init__(self, P, I, N): #CONSTRUTOR RECEBE PARAMETROS
-            self.P = P  # Montante Inicial (R$)
-            self.I = I  # Taxa de Juros (%)
-            self.N = N  # Periodo (mês)
+    class Financeira(): # SUBCLASSE CALCULADORA FINANCEIRA
+        def __init__(self, P, I, N): # CONSTRUTOR RECEBE PARAMETROS
+            self.P = P  # Montante Inicial (R$.
+            self.I = I  # Taxa de Juros (%).
+            self.N = N  # Periodo (mês).
 
         def Juros_Simples(self):
             J_S = (self.P + (self.P * (self.I / 100) * self.N))
