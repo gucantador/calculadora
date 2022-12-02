@@ -29,21 +29,10 @@ class calculadora():
         return (x, y, z)
 
     def listar_operacoes(self):  # METODO QUE LISTA OPERAÇÕES
-        print("1 - somar")
-        print("2 - subtrair")
-        print("3 - multiplicar")
-        print("4 - dividir")
-        print("5 - elevar ao quadrado")
-        print("6 - raiz quadrada")
-        print("7 - elevar a x")
-        print("8 - raiz x")
-        print("9 - log base 10")
-        print("10 - fatorial")
-        print("11 - sen")
-        print("12 - cos")
-        print("13 - tg")
-        print("14 - juros simples")
-        print("15 - juros compostos")
+        prin_t = ['1 - somar'       ,'2 - subtrair'  ,'3 - multiplicar','4 - dividir'       ,'5 - elevar ao quadrado',
+                 '6 - raiz quadrada','7 - elevar a x','8 - raiz x'     ,'9 - log base 10'   ,'10 - fatorial'         ,
+                 '11 - sen'         ,'12 - cos'      ,'13 - tg'        ,'14 - juros simples','15 - juros compostos'  ]       
+        for i in prin_t: {print(i)} # PRINT TODAS AS OPÇÕES DA CALCULADORA
 
     def rodar(self, res):  # METODO QUE RODA O CODIGO, CONDIÇÕES DE OPÇÕES DO USUARIO
 
@@ -92,6 +81,7 @@ class calculadora():
         if a == 4:
             c = calculadora.simples(x, y)
             resultado = c.dividir()
+            
         # -------------Cientifica----------------#
         if a == 5:
             c = calculadora.cientifica(x, y)
@@ -170,8 +160,7 @@ class calculadora():
             self.b = b
 
         def elevado_quadrado(self):
-            # return self.a*self.a
-            c = calculadora.simples(self.a, self.a)  #
+            c = calculadora.simples(self.a, self.a)  
             return c.multiplicar()
 
         def raiz_quadrada(self):
